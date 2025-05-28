@@ -28,7 +28,25 @@ BASENAME=$(basename "$INPUT_FILE" .wav)
 
 echo "Slicing $INPUT_FILE into 10-second chunks with 1-second overlap..."
 
-# Use ffmpeg to create overlapping segments
-ffmpeg -i "$INPUT_FILE" -f segment -segment_time 10 -segment_overlap 1 -c copy "$OUTPUT_DIR/${BASENAME}_chunk_%03d.wav"
+# Get total duration of the input file
+DURATION=$(ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$INPUT_FILE")
+DURATION_INT=$(echo "$DURATION" | cut -d. -f1)
+
+# Create overlapping segments manually
+COUNTER=0
+START_TIME=0
+
+while [ $START_TIME -lt $DURATION_INT ]; do
+    CHUNK_FILE=$(printf "$OUTPUT_DIR/${BASENAME}_chunk_%03d.wav" $COUNTER)
+    
+    echo "Creating chunk $COUNTER: ${START_TIME}s to $((START_TIME + 10))s"
+    
+    # Extract 10-second chunk starting at START_TIME
+    ffmpeg -y -i "$INPUT_FILE" -ss $START_TIME -t 10 -c copy "$CHUNK_FILE" 2>/dev/null
+    
+    # Move start time forward by 9 seconds (10 - 1 second overlap)
+    START_TIME=$((START_TIME + 9))
+    COUNTER=$((COUNTER + 1))
+done
 
 echo "Audio slicing complete! Chunks saved to $OUTPUT_DIR/"
