@@ -1,0 +1,107 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Audio files (large, generated content)
+audio/*.wav
+audio/*.mp3
+audio/*.m4a
+audio/*.flac
+audio/*_chunk_*.wav
+
+# Generated transcription and analysis files
+audio/*.txt
+audio/*.rttm
+audio/*.json
+
+# Models (large binary files)
+models/whisper.cpp/
+models/stance-classifier/
+models/*.bin
+models/*.ggml
+models/*.pt
+models/*.pth
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+
+# Streamlit
+.streamlit/
+
+# HuggingFace cache
+.cache/huggingface/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

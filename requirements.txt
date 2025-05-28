@@ -1,0 +1,25 @@
+# Core dependencies for Dhisper debate dashboard
+streamlit>=1.28.0
+plotly>=5.15.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Audio processing and ML
+pyannote.audio>=3.0.0
+sentence-transformers>=2.2.0
+torch>=2.0.0
+torchaudio>=2.0.0
+
+# Hugging Face ecosystem
+transformers>=4.30.0
+datasets>=2.12.0
+
+# Utility packages
+pathlib2>=2.3.7
+argparse-dataclass>=2.0.0
+python-dotenv>=1.0.0
+
+# Development and testing
+pytest>=7.4.0
+black>=23.0.0
+flake8>=6.0.0
